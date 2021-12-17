@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: root-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: root
+  template:
+    metadata:
+      labels:
+        app: root
+    spec:
+      containers:
+        - name: root-service
+          image: tr1ckste/root:0.1
+          ports:
+            - containerPort: 8080

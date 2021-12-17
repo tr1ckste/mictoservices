@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-2-deploy
+spec:
+  selector:
+    matchLabels:
+      app: service2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service2
+    spec:
+      containers:
+      - name: service2
+        image: tr1ckste/service2:0.1
+        ports:
+        - containerPort: 8080
