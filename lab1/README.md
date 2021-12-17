@@ -1,33 +1,33 @@
 # Lab 1
 
-##Створюємо docker images для першого та другого сервісу:
+## Створюємо docker images для першого та другого сервісу:
 
 ```
 docker build -t tr1ckste/service1:0.1 ./1
 docker build -t tr1ckste/service2:0.1 ./2
 ```
 
-##Заливаємо images на docker hub
+## Заливаємо images на docker hub
 
 ```
 docker push tr1ckste/service1:0.1
 docker push tr1ckste/service2:0.1
 ```
 
-##Для того щоб ввімкнути hyper-v вводимо в PowerShell команду:
+## Для того щоб ввімкнути hyper-v вводимо в PowerShell команду:
 
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
-##Далі:
+## Далі:
 
 ```
 minikube start --driver=hyperv
 minikube addons enable ingress
 ```
 
-##Створюємо сервіси:
+## Створюємо сервіси:
 
 ```
 kubectl apply -f service1-deployment.yaml
